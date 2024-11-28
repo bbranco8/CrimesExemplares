@@ -8,3 +8,7 @@ header>img {
     margin-top: 25%;
     margin-left: 5%;
 }
+
+main > section > img {
+    margin: 5%;
+}
