@@ -1,21 +1,12 @@
 html,
 body {
-    background: #969696;
-    height: 100%;
-}
-
-header {
     height: 100%;
     background: #969696;
 }
 
-header > img {
+header>img {
     margin-top: 25%;
     margin-left: 5%;
-}
-
-main {
-    background: #fefef6;
 }
 
 main > section > img {
