@@ -23,13 +23,13 @@ header {
     position: relative;
 }
 
-header>div{
+header>div {
     width: 100%;
     position: absolute;
-    bottom:0;
+    bottom: 0;
 }
 
-header>div>img{
+header>div>img {
     position: relative;
     margin-left: 7%;
     margin-bottom: 7%;
@@ -39,14 +39,15 @@ section {
     background: #fffef8;
 }
 
-.container{
+.container {
     width: 100%;
     height: 100vh;
-    padding: 5% 7%;/*top & bottom   right & left*/
+    padding: 5% 7%;
+    /*top & bottom   right & left*/
     box-sizing: border-box;
 }
 
-.text{
+.text {
     width: 550px;
     margin-top: 3%;
     font-family: 'Circular';
@@ -54,13 +55,13 @@ section {
     line-height: 1.4;
 }
 
-.container>h1{
+.container>h1 {
     color: #507650;
     font-size: 15pt;
     margin-bottom: 15px;
 }
 
-.topicos{
+.topicos {
     width: 100%;
     height: 50px;
     display: flex;
@@ -68,7 +69,7 @@ section {
     margin-top: 15px;
 }
 
-.topicos>ul{
+.topicos>ul {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -76,43 +77,52 @@ section {
     font-size: 15pt;
 }
 
-.topicos>ul>li{
+.topicos>ul>li {
     list-style: none;
     cursor: pointer;
     color: #c9c9c9;
 }
 
-#localBtn{
+#localBtn {
     color: #507650;
 }
 
-.quizzCont{
+.quizzCont {
     position: relative;
     width: 60%;
     padding-bottom: 5%;
 }
 
-/*inicialmente só a arma está visível*/
-.local{
-    background-color: rgb(197, 50, 50); 
+.imgtest {
+    float: left;
+    color: #000000;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 2px;
 }
 
-.arma{
+/*inicialmente só a arma está visível*/
+.imgLocal {
+    background-color: rgb(197, 50, 50);
+}
+
+.arma {
     background-color: rgb(107, 175, 107);
     display: none;
 }
 
-.assassino{
+.assassino {
     background-color: rgb(158, 158, 255);
     display: none;
 }
 
-.vitima{
+.vitima {
     background-color: rgba(255, 255, 86, 0.655);
     display: none;
 }
 
-.motivo{
+.motivo {
     background-color: pink;
     display: none;
 }
