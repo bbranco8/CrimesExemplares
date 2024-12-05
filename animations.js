@@ -10,7 +10,7 @@ let canvas, ctx;
 function preload() {
     for (let i = 1; i < 17; i++) {
         let imgMoney = new Image();
-        imgMoney.src = `middlepages/money/money${i}.png`; 
+        imgMoney.src = `money${i}.png`; 
         money.push(imgMoney); //adicionar cada imagem ao array money
     }
 }
