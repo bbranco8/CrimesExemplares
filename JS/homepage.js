@@ -145,7 +145,7 @@ function mover(square) {
     // momento em que o rato move/arrasta os quadrados
     document.addEventListener('mousemove', (e) => {
         if (arrasta) {
-            let container = document.querySelector('#thirdContainer'); 
+            let container = document.querySelector('#fourthContainer'); 
             let containerRect = container.getBoundingClientRect(); // Obtém as dimensões do contentor
             let squareRect = square.getBoundingClientRect(); // Obtém as dimensões do quadrado
 
