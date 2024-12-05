@@ -36,7 +36,7 @@ header>div>img {
 }
 
 section {
-    background: #fffef8;
+   background: #fffef8;
 }
 
 .container {
@@ -44,6 +44,7 @@ section {
     height: 100vh;
     padding: 5% 7%; /*top & bottom   right & left*/
     box-sizing: border-box;
+    z-index: -1;
 }
 
 .text {
@@ -62,11 +63,13 @@ section {
 }
 
 .topicos {
-    width: 100%;
+    z-index: 2;
+    width: 50%;
     height: 50px;
     display: flex;
     align-items: center;
     margin-top: 15px;
+    position: absolute;
 }
 
 .topicos>ul {
@@ -87,10 +90,13 @@ section {
     color: #507650;
 }
 
-.quizzCont{
-    width: 100%;
-    height: 300px;
-    position: relative;
+.quizzCont{ 
+    position: absolute;
+    top: 300vh;  /* Começar no topo do .thirdContainer */
+    left: 0;  /* Alinhar à esquerda do .thirdContainer */
+    width: 60%;  /* Garantir que o .quizzCont ocupe toda a largura */
+    height: 100%;  /* Garantir que o .quizzCont ocupe toda a altura */
+    z-index: 1;  /* Colocar o .quizzCont por trás do título */
     border: solid blue;
     display: none;
 }

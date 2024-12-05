@@ -15,6 +15,12 @@ function esconderTodos() {
 esconderTodos();
 
 
+
+
+
+
+
+
 // Função para a posição dos divs serem aleatórias
 function position() {
     quizzConts.forEach((quizzCont) => {
@@ -23,7 +29,7 @@ function position() {
 
         if (escondido) { //se o quiz estiver escondido (não estiver desenhado)
             quizzCont.style.display = 'block'; //torna-se temporariamente visível para que se 
-                                               //tenha os valores do quizzContainer corretos
+            //tenha os valores do quizzContainer corretos
         }
 
         let quizzSize = quizzCont.getBoundingClientRect(); // Obtém dimensões corretas do quizzContainer
@@ -64,6 +70,9 @@ function position() {
 
 
 
+
+
+
 // Função para desenhar o contentor correspondente ao tópico carregado
 function mostrarTopico(topico) {
     esconderTodos();  // "Apaga" todos os contentores antes de mostrar o tópico selecionado
@@ -84,6 +93,10 @@ function mostrarTopico(topico) {
 
 
 
+
+
+
+
 // Adiciona uma interação de click a cada item da lista
 lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
     item.addEventListener('click', function () {
@@ -95,12 +108,16 @@ lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
 });
 
 
+
+
+
+
 //função para arrastar os elementos
 function mover(square) {
     let posX = 0, posY = 0;
     let arrasta = false;
 
-    // Quando o mouse é pressionado sobre o quadrado
+    // momento em que o rato agarra o quadrado
     square.addEventListener('mousedown', (e) => {
         arrasta = true;
         posX = e.clientX - square.offsetLeft; // Distância até a borda esquerda do quadrado
@@ -110,7 +127,7 @@ function mover(square) {
         e.preventDefault();
     });
 
-    // Quando o mouse se move (arrastando)
+    // momento em que o rato move/arrasta os quadrados
     document.addEventListener('mousemove', (e) => {
         if (arrasta) {
             let newPosX = e.clientX - posX; // Atualiza a posição X
@@ -125,44 +142,7 @@ function mover(square) {
         }
     });
 
-    // Quando o mouse é solto (finaliza o arraste)
-    document.addEventListener('mouseup', () => {
-        arrasta = false;
-        square.style.cursor = 'grab';  // Volta o cursor para "grab"
-    });
-}
-
-//função para arrastar os elementos
-function mover(square) {
-    let posX = 0, posY = 0;
-    let arrasta = false;
-
-    // Quando o mouse é pressionado sobre o quadrado
-    square.addEventListener('mousedown', (e) => {
-        arrasta = true;
-        posX = e.clientX - square.offsetLeft; // Distância até a borda esquerda do quadrado
-        posY = e.clientY - square.offsetTop;  // Distância até a borda superior do quadrado
-        square.style.cursor = 'grabbing';  // Altera o cursor para "grabbing"
-
-        e.preventDefault();
-    });
-
-    // Quando o mouse se move (arrastando)
-    document.addEventListener('mousemove', (e) => {
-        if (arrasta) {
-            let newPosX = e.clientX - posX; // Atualiza a posição X
-            let newPosY = e.clientY - posY; // Atualiza a posição Y
-
-            // Atualiza os atributos data-x/data-y
-            square.style.left = `${newPosX}px`;
-            square.style.top = `${newPosY}px`;
-
-            square.setAttribute('data-x', newPosX);
-            square.setAttribute('data-y', newPosY);
-        }
-    });
-
-    // Quando o mouse é solto (finaliza o arraste)
+    // momento em que o rato solta/larga os quadrados
     document.addEventListener('mouseup', () => {
         arrasta = false;
         square.style.cursor = 'grab';  // Volta o cursor para "grab"
