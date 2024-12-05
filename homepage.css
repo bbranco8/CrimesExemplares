@@ -87,19 +87,20 @@ section {
     color: #507650;
 }
 
-.quizzCont {
-    position: relative;
-    width: 60%;
-    padding-bottom: 5%;
+.quizzCont{
+    display: none;
 }
 
-.imgtest {
-    float: left;
-    color: #000000;
-    width: 100px;
-    line-height: 100px;
-    text-align: center;
-    margin: 2px;
+#local{
+    display: block;
+}
+
+.square{
+    display: inline-block;    
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 5px;
 }
 
 /*inicialmente só a arma está visível*/
@@ -109,20 +110,16 @@ section {
 
 .arma {
     background-color: rgb(107, 175, 107);
-    display: none;
 }
 
 .assassino {
     background-color: rgb(158, 158, 255);
-    display: none;
 }
 
 .vitima {
     background-color: rgba(255, 255, 86, 0.655);
-    display: none;
 }
 
 .motivo {
     background-color: pink;
-    display: none;
 }
