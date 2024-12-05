@@ -6,16 +6,44 @@ let quizzConts = document.querySelectorAll('.quizzCont');
 
 // Função para esconder todas as divs de conteúdo
 function esconderTodos() {
-    quizzConts.forEach(function (item) { //para cada um dos <li> da lista <ul>
-        item.style.display = 'none'; //inicialmente estarão todos escondidos ("apagados")
+    let nCont = quizzConts.length;
+
+    for (let i = 0; i < nCont; i++) {//para cada um dos <li> da lista <ul>
+        quizzConts[i].style.border = 'solid blue';
+        quizzConts[i].style.display = 'none'; //e os outros estarão todos escondidos ("apagados")
+    }
+}
+esconderTodos();
+
+let squares = document.querySelectorAll('.square');
+
+// Função para a posição dos divs serem aleatórias
+function position() {
+    quizzConts.forEach((quizzCont) => {//para cada um dos contentores do quizz
+        let quizzSize = quizzCont.getBoundingClientRect(); // Obtém as dimensões reais do quizzContainer
+        let quizzWidth = quizzSize.width;
+        let quizzHeight = quizzSize.height;
+
+        let squares = quizzCont.querySelectorAll('.square'); // Seleciona apenas os squares dentro do contêiner atual
+
+        for (let i = 0; i < squares.length; i++) {
+            let randomX = Math.random() * (quizzWidth - 80); // Ajusta para largura do contêiner
+            let randomY = Math.random() * (quizzHeight - 80); // Ajusta para altura do contêiner
+
+            squares[i].style.left = `${randomX}px`;
+            squares[i].style.top = `${randomY}px`;
+        }
     });
 }
+
 
 // Função para desenhar o contentor correspondente ao tópico carregado
 function mostrarTopico(topico) {
     esconderTodos();  // "Apaga" todos os contentores antes de mostrar o tópico selecionado
     let contentor = document.querySelector('#' + topico);  // Seleciona a div correspondente
     contentor.style.display = 'block';  // Exibe o contentor
+
+    position();
 
     // Atualiza a cor dos itens da lista
     lista.forEach(function (item) {
@@ -32,7 +60,7 @@ lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
     item.addEventListener('click', function () {
         // Desenha o conteúdo correspondente ao tópico clicado
         mostrarTopico(item.id.replace('Btn', '')); //como o que diferencia o nome dos id é o 'Btn', 
-                                                   //se eu retirar isso (substituo 'Btn' por "nada" - ' ')
-                                                   //fico com o nome do id do contentor (com 'Btn' é o id do topico)
+        //se eu retirar isso (substituo 'Btn' por "nada" - ' ')
+        //fico com o nome do id do contentor (com 'Btn' é o id do topico)
     });
 });

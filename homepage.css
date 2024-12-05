@@ -88,19 +88,20 @@ section {
 }
 
 .quizzCont{
+    width: 700px;
+    height: 300px;
+    position: relative;
     display: none;
+}
+
+.square{   
+    width: 80px;
+    height: 80px;
+    position: absolute;
 }
 
 #local{
     display: block;
-}
-
-.square{
-    display: inline-block;    
-    width: 80px;
-    height: 80px;
-    position: relative;
-    margin: 5px;
 }
 
 /*inicialmente só a arma está visível*/
