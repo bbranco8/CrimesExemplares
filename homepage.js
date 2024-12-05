@@ -15,7 +15,6 @@ function esconderTodos() {
 }
 esconderTodos();
 
-let squares = document.querySelectorAll('.square');
 
 // Função para a posição dos divs serem aleatórias
 function position() {
@@ -32,6 +31,8 @@ function position() {
 
             squares[i].style.left = `${randomX}px`;
             squares[i].style.top = `${randomY}px`;
+
+            mover(squares[i]);
         }
     });
 }
@@ -55,6 +56,8 @@ function mostrarTopico(topico) {
     itemSelecionado.style.color = '#507650';  //desenha na cor verde
 }
 
+
+
 // Adiciona uma interação de click a cada item da lista
 lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
     item.addEventListener('click', function () {
@@ -64,3 +67,38 @@ lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
         //fico com o nome do id do contentor (com 'Btn' é o id do topico)
     });
 });
+
+
+
+//função para arrastar os elementos
+function mover(square) {
+    let posX, posY;
+    let arrasta = false;
+
+    //momento em que pego na imagem
+    square.addEventListener('mousedown', (e) => {
+        arrasta = true;
+        posX = e.clientX - square.getBoundingClientRect().left;
+        posY = e.clientY - square.getBoundingClientRect().top;
+        square.style.cursor = 'grabbing';
+    });
+
+    //momento em que estou a arrastar a imagem
+    square.addEventListener('mousemove', (e) => {
+        if (arrasta) {
+            let posX = e.clientX - offsetX;
+            let posY = e.clientY - offsetY;
+
+            // Define as novas posições para o quadrado
+            square.style.left = `${posX}px`;
+            square.style.top = `${posY}px`;
+        }
+    });
+
+    //momento em que largo a imagem
+    document.addEventListener('mouseup', () => {
+        arrasta = false;
+        square.style.cursor = 'grab'; // Volta o cursor para "grab"
+    });
+}
+
