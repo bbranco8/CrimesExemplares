@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Crimes Exemplares </title>
-  <link rel="stylesheet" type="text/css" href="homepage.css">
+  <link rel="stylesheet" type="text/css" href="CSS/homepage.css">
+  <link rel="stylesheet" type="text/css" href="CSS/quizz.css">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
     </section>
 
     <section class="thirdScreen">
-      <div class="container">
+      <div class="container secondContainer" >
         <img src="midlepages/obra.png" width="30%" alt="Obra">
         <div class="text">
           <p>Publicada em 1957, “Crimes Exemplares” é um conjunto de 87 crimes fictícios revelados de forma cómica,
@@ -53,24 +54,32 @@
             serve para expor a monotonia quotidiana, explorando as contradições e os impulsos irracionais humanos.
           </p>
         </div>
-        <div>
-          <!--<img src="midlepages/money/money1.png" alt="Obra">-->
+
+        <div class="moneyCont">
+          <img src="midlepages/money/money1.png" alt="Obra">
         </div>
+      </div>
+
     </section>
 
     <section class="quizz">
-      <div class="container" id="thirdContainer">
-        <p>Cria o teu próprio</p>
-        <img src="midlepages/autor.png" width="30%" alt="Quizz">
-        <div class="topicos">
-          <ul>
-            <li id="localBtn">Local</li>
-            <li id="armaBtn">Arma</li>
-            <li id="assassinoBtn">Assassíno</li>
-            <li id="vitimaBtn">Vítima</li>
-            <li id="motivoBtn">Motivo</li>
-          </ul>
+      <div class="container thirdContainer" id="thirdContainer">
+
+        <div class="titulos primeiroTit">
+          <p>Cria o teu próprio</p>
+          <div class="topicos">
+            <ul>
+              <li id="localBtn">Local</li>
+              <li id="armaBtn">Arma</li>
+              <li id="assassinoBtn">Assassíno</li>
+              <li id="vitimaBtn">Vítima</li>
+              <li id="motivoBtn">Motivo</li>
+            </ul>
+          </div>
         </div>
+
+        <img src="midlepages/autor.png" width="30%" alt="Quizz">
+
         <div class="quizzCont" id="local">
           <div class="square local"></div>
           <div class="square local"></div>
@@ -109,9 +118,9 @@
       </div>
     </section>
   </main>
-  
-  <script src="homepage.js"></script>
-  <script src="animations.js"></script>
+
+  <script src="/JS/homepage.js"></script>
+  <script src="/JS/animations.js"></script>
 </body>
 
 </html>

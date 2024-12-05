@@ -1,0 +1,78 @@
+
+.titulos{
+    font-size: 15pt;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+.primeiroTit {
+    color: #507650;
+    display: flex;
+    justify-content: start;
+}
+
+.topicos {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+}
+
+.topicos>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 30px;
+}
+
+.topicos>ul>li {
+    list-style: none;
+    cursor: pointer;
+    color: #c9c9c9;
+}
+
+#localBtn {
+    color: #507650;
+}
+
+.quizzCont {
+    position: absolute;
+    top: 300vh;/*o quizz começa no topo da ultima tela*/
+    left: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.square {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+}
+
+/*inicialmente só a arma está visível*/
+.local {
+    background-color: rgb(197, 50, 50);
+}
+
+.arma {
+    background-color: rgb(107, 175, 107);
+}
+
+.assassino {
+    background-color: rgb(158, 158, 255);
+}
+
+.vitima {
+    background-color: rgba(255, 255, 86, 0.655);
+}
+
+.motivo {
+    background-color: pink;
+}
