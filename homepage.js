@@ -52,8 +52,8 @@ function position() {
 
             } else { //se não, significa que temos de criar posições aletórias novas
 
-                let randomX = Math.random() * (quizzWidth - 80); // Ajusta para largura do contêiner
-                let randomY = Math.random() * (quizzHeight - 80); // Ajusta para altura do contêiner
+                let randomX = Math.random() * (quizzWidth - 80); 
+                let randomY = Math.random() * (quizzHeight - 80);
 
                 squares[i].style.left = `${randomX}px`;
                 squares[i].style.top = `${randomY}px`;
@@ -110,9 +110,7 @@ lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
 
 
 
-
-
-//função para arrastar os elementos
+// Função para arrastar os elementos
 function mover(square) {
     let posX = 0, posY = 0;
     let arrasta = false;
@@ -130,8 +128,16 @@ function mover(square) {
     // momento em que o rato move/arrasta os quadrados
     document.addEventListener('mousemove', (e) => {
         if (arrasta) {
+            let container = document.querySelector('#thirdContainer'); 
+            let containerRect = container.getBoundingClientRect(); // Obtém as dimensões do contentor
+            let squareRect = square.getBoundingClientRect(); // Obtém as dimensões do quadrado
+
             let newPosX = e.clientX - posX; // Atualiza a posição X
             let newPosY = e.clientY - posY; // Atualiza a posição Y
+
+            // Restringe os valores para os limites do contêiner
+            newPosX = Math.max(0, Math.min(newPosX, containerRect.width - squareRect.width));
+            newPosY = Math.max(0, Math.min(newPosY, containerRect.height - squareRect.height));
 
             // Atualiza os atributos data-x/data-y
             square.style.left = `${newPosX}px`;

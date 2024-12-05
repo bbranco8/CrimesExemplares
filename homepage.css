@@ -12,6 +12,10 @@
     font-family: Circular;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 header,
 section {
     height: 100vh;
@@ -105,10 +109,6 @@ section {
     width: 80px;
     height: 80px;
     position: absolute;
-}
-
-#local{
-    display: block;
 }
 
 /*inicialmente só a arma está visível*/
