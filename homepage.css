@@ -59,10 +59,9 @@ section {
     line-height: 1.4;
 }
 
-.container>h1 {
+.container>p {
     color: #507650;
     font-size: 15pt;
-    letter-spacing: 2px;
     margin-bottom: 15px;
 }
 

@@ -20,10 +20,15 @@ esconderTodos();
 
 
 
+// Função para calcular a distância entre dois pontos
+function dist(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
 
 // Função para a posição dos divs serem aleatórias
 function position() {
     quizzConts.forEach((quizzCont) => {
+
         // Torna o quizzContainer temporariamente visível caso esteja oculto para as dimensões retribuídas serem válidas
         let escondido = quizzCont.style.display === 'none';
 
@@ -32,32 +37,47 @@ function position() {
             //tenha os valores do quizzContainer corretos
         }
 
-        let quizzSize = quizzCont.getBoundingClientRect(); // Obtém dimensões corretas do quizzContainer
+        let quizzSize = quizzCont.getBoundingClientRect();// Obtém dimensões corretas do quizzContainer
         let quizzWidth = quizzSize.width;
         let quizzHeight = quizzSize.height;
 
-        if (escondido) { //no entanto, caso esteja visível fica novamente oculto, porque não queremos ver todos ao mesmo tempo
+        if (escondido) {//no entanto, caso esteja visível fica novamente oculto, porque não queremos ver todos ao mesmo tempo
             quizzCont.style.display = 'none';
         }
 
         let squares = quizzCont.querySelectorAll('.square'); // Seleciona apenas os quadrados
 
         for (let i = 0; i < squares.length; i++) {
-            let savedX = squares[i].getAttribute('data-x'); //salva as posições x e y já executadas
+            let savedX = squares[i].getAttribute('data-x');
             let savedY = squares[i].getAttribute('data-y');
 
-            if (savedX !== null && savedY !== null) {//se as posições não forem nulas, significa que já foram movidas
-                squares[i].style.left = `${savedX}px`;
+            if (savedX !== null && savedY !== null) {//se as posições não forem nulas, mantém-se as posições já definidas
+                squares[i].style.left = `${savedX}px`;//salva as posições x e y já executadas
                 squares[i].style.top = `${savedY}px`;
 
-            } else { //se não, significa que temos de criar posições aletórias novas
+            } else {//se não, significa que temos de criar posições aletórias novas
 
-                let randomX = Math.random() * (quizzWidth - 80); 
+                //as posições iniciais são aleatórias mas são geradas dentro do contentor do quizz
+                let randomX = Math.random() * (quizzWidth - 80);
                 let randomY = Math.random() * (quizzHeight - 80);
+
+                let sobreposto = false;
+
+                for (let j = 0; j < i; j++) {
+                    let otherSquare = squares[j];
+                    let otherX = parseFloat(otherSquare.getAttribute('data-x'));
+                    let otherY = parseFloat(otherSquare.getAttribute('data-y'));
+
+                    if (dist(randomX, randomY, otherX, otherY) < 100) {
+                        sobreposto = true; //significa que os quadrados estão sobrepostos
+                        randomX = Math.random() * (quizzWidth - 80); //geram-se novas posições aleatórias
+                        randomY = Math.random() * (quizzHeight - 80);
+                        j = -1; // Reinicia o loop para verificar novamente todos os quadrados anteriores
+                    }
+                }
 
                 squares[i].style.left = `${randomX}px`;
                 squares[i].style.top = `${randomY}px`;
-
                 squares[i].setAttribute('data-x', randomX);
                 squares[i].setAttribute('data-y', randomY);
             }
@@ -67,10 +87,6 @@ function position() {
         }
     });
 }
-
-
-
-
 
 
 // Função para desenhar o contentor correspondente ao tópico carregado
@@ -135,7 +151,7 @@ function mover(square) {
             let newPosX = e.clientX - posX; // Atualiza a posição X
             let newPosY = e.clientY - posY; // Atualiza a posição Y
 
-            // Restringe os valores para os limites do contêiner
+            // Restringe os valores para os limites do contentor
             newPosX = Math.max(0, Math.min(newPosX, containerRect.width - squareRect.width));
             newPosY = Math.max(0, Math.min(newPosY, containerRect.height - squareRect.height));
 
