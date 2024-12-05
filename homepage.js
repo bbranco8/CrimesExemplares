@@ -125,6 +125,7 @@ lista.forEach(function (item) { //para cada um dos <li> da lista <ul>
 
 
 
+mostrarTopico("local");//inicialmente o primeiro div aparece desenhado como default
 
 // Função para arrastar os elementos
 function mover(square) {
