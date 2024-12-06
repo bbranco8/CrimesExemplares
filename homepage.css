@@ -23,13 +23,13 @@ header {
     position: relative;
 }
 
-header>div {
+header > div {
     width: 100%;
     position: absolute;
     bottom: 0;
 }
 
-header>div>img {
+header > div > img {
     position: relative;
     margin-left: 7%;
     margin-bottom: 7%;
@@ -61,7 +61,7 @@ section {
     line-height: 1.4;
 }
 
-.container>h1 {
+.container > h1 {
     color: #507650;
     font-size: 15pt;
     margin-bottom: 15px;
