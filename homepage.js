@@ -101,4 +101,3 @@ function mover(square) {
         square.style.cursor = 'grab'; // Volta o cursor para "grab"
     });
 }
-
