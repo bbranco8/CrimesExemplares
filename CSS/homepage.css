@@ -1,7 +1,7 @@
 /*importação da fonte*/
 @font-face {
     font-family: 'Circular';
-    src: url('/font/CircularStd-Book.woff') format('woff'); 
+    src: url('../font/CircularStd-Book.woff') format('woff'); 
 }
 
 * {
@@ -13,9 +13,7 @@
 }
 
 html {
-    overflow-x: hidden;
-    /*esconde a barra se scroll horizontal que se cria devido ao quizz*/
-    font-size: 16pt;
+    overflow-x: hidden;/*esconde a barra se scroll horizontal que se cria devido ao quizz*/
 }
 
 header,
@@ -43,8 +41,8 @@ header>div>img {
 
 section {
     background: #fffef8;
-    padding: 5% 7%;
-    /*top & bottom   right & left*/
+    padding: 5% 7%;/*top & bottom   right & left*/
+    border: solid yellow;
 }
 
 .container {
@@ -53,9 +51,9 @@ section {
 }
 
 .text {
-    width: 550px;
+    font-size: 1.25vw;/*formato de fonte responsivo*/
+    width: 50%;
     margin-top: 3%;
     font-family: 'Circular';
-    font-size: 75%;
     line-height: 1.4;
 }
