@@ -44,10 +44,11 @@
     position: absolute;
     top: 300vh;/*o quizz começa no topo da ultima tela*/
     left: 0;
-    width: 60%;
+    width: 55%;/*define o tamanho da janela onde os quadrados vão ser desenhados inicialmente*/
     height: 100%;
     z-index: 1;
     display: none;
+    border: solid greenyellow;
 }
 
 .square {
@@ -75,4 +76,13 @@
 
 .motivo {
     background-color: pink;
+}
+
+.display{
+    position: absolute;
+    width: 35%;
+    right: 7%;
+    height: 100%;
+    top: 300vh;
+    border: solid blue;
 }
