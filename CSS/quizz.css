@@ -2,7 +2,7 @@
 .titulos{
     font-size: 1.6vw;
     width: 100%;
-    height: 50px;
+    margin-bottom: 10px;
     position: relative;
     display: flex;
     flex-direction: row; 
@@ -40,24 +40,18 @@
     color: #507650;
 }
 
-.quizzCont {
-    position: absolute;
-    top: 300vh;/*o quizz começa no topo da ultima tela*/
-    left: 0;
-    width: 55%;/*define o tamanho da janela onde os quadrados vão ser desenhados inicialmente*/
-    height: 100%;
-    z-index: 1;
-    display: none;
-    border: solid greenyellow;
+#fourthScreen{
+    position: relative;
 }
 
 .square {
     width: 80px;
     height: 80px;
     position: absolute;
+    display: none;
+    z-index: 10;
 }
 
-/*inicialmente só a arma está visível*/
 .local {
     background-color: rgb(197, 50, 50);
 }
@@ -77,12 +71,11 @@
 .motivo {
     background-color: pink;
 }
-
 .display{
     position: absolute;
-    width: 35%;
-    right: 7%;
-    height: 100%;
-    top: 300vh;
+    width: 500px;
+    height: 400px;
+    right: 3%;
+    top: 120px;
     border: solid blue;
 }
