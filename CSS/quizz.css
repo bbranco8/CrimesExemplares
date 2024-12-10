@@ -48,7 +48,7 @@
     /* width: 120px;
     height: 120px; */
     position: absolute;
-    display: none;
+    display: block;
     z-index: 10;
 }
 
