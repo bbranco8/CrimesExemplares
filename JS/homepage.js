@@ -18,7 +18,7 @@ function position() {
 
     for (let i = 0; i < squares.length; i++) {
 
-        //calcula a posição de cada quadrado em relação ao contentor
+        //calcula o tamanho de cada quadrado
         const rect = squares[i].getBoundingClientRect();
         const squareWidth = rect.width;  // Largura do quadrado
         const squareHeight = rect.height; // Altura do quadrado
@@ -27,6 +27,7 @@ function position() {
         const displayWidth = displayRect.width / 2;
         const displayHeight = displayRect.height - 80;
 
+        //guardam as posições x e y dos quadrados
         let savedX = squares[i].getAttribute('data-x');
         let savedY = squares[i].getAttribute('data-y');
 
