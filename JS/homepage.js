@@ -11,60 +11,36 @@ function dist(x1, y1, x2, y2) {
 }
 
 
+
 function position() {
-
     const displayContainer = document.querySelector('#fourthScreen');
-    const displayRect = displayContainer.getBoundingClientRect(); // Obtém as dimensões da div display
+    const displayRect = displayContainer.getBoundingClientRect(); // Dimensões da div display
 
+    // Para cada quadrado, gerar uma posição aleatória
     for (let i = 0; i < squares.length; i++) {
-
-        //calcula o tamanho de cada quadrado
+        // Dimensões do quadrado
         const rect = squares[i].getBoundingClientRect();
-        const squareWidth = rect.width;  // Largura do quadrado
-        const squareHeight = rect.height; // Altura do quadrado
+        const squareWidth = rect.width;
+        const squareHeight = rect.height;
 
-        //calcula a largura e altura da secção (tela)
-        const displayWidth = displayRect.width ;
-        const displayHeight = displayRect.height - 150;
+        // Largura e altura total do contêiner
+        const displayWidth = displayRect.width / 2;
+        const displayHeight = displayRect.height - 180;
 
-        //guardam as posições x e y dos quadrados
-        let savedX = squares[i].getAttribute('data-x');
-        let savedY = squares[i].getAttribute('data-y');
+        // Gera uma posição aleatória dentro do contêiner
+        let randomX = Math.random() * (displayWidth - squareWidth);  // Posição X aleatória
+        let randomY = Math.random() * (displayHeight - squareHeight);  // Posição Y aleatória
 
-        if (savedX !== null && savedY !== null) { // Se as posições já foram definidas
-            squares[i].style.left = `${savedX}px`;
-            squares[i].style.top = `${savedY}px`;
-        } else {
-            let randomX = 0, randomY = 0;
-            let sobreposto = true;
+        // Aplica a posição aleatória ao quadrado
+        squares[i].style.left = `${randomX}px`;
+        squares[i].style.top = `${randomY}px`;
 
-            //gera posições até que não haja sobreposição de quadrados
-            while (sobreposto) {
-                randomX = Math.random() * (displayWidth - squareWidth); 
-                randomY = Math.random() * (displayHeight - squareHeight); 
-                sobreposto = false;
-
-                for (let j = 0; j < i; j++) {
-                    let otherSquare = squares[j];
-                    let otherX = parseFloat(otherSquare.getAttribute('data-x'));
-                    let otherY = parseFloat(otherSquare.getAttribute('data-y'));
-
-                    //se a distancia entre dois quadrados for menor que 100
-                    if (dist(randomX, randomY, otherX, otherY) < 150) { 
-                        sobreposto = true;
-                        break;
-                    }
-                }
-            }
-
-            //define novas posições para os quadrados
-            squares[i].style.left = `${randomX}px`;
-            squares[i].style.top = `${randomY}px`;
-            squares[i].setAttribute('data-x', randomX);
-            squares[i].setAttribute('data-y', randomY);
-        }
+        // Salva as posições nos atributos
+        squares[i].setAttribute('data-x', randomX);
+        squares[i].setAttribute('data-y', randomY);
     }
 }
+
 
 
 
@@ -180,6 +156,11 @@ function atualizarCorTopicos(selectedIndex) {
         }
     }
 }
+
+
+
+
+
 
 
 

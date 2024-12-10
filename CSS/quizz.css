@@ -56,26 +56,6 @@
     cursor: grab;
 }
 
-.local {
-    background-color: rgb(197, 50, 50);
-}
-
-.arma {
-    background-color: rgb(107, 175, 107);
-}
-
-.assassino {
-    background-color: rgb(158, 158, 255);
-}
-
-.vitima {
-    background-color: rgba(255, 255, 86, 0.655);
-}
-
-.motivo {
-    background-color: pink;
-}
-
 .display{
     position: relative;
     width: 50%;
