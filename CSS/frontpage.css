@@ -1,0 +1,48 @@
+header {
+    background: #b7b6b6;
+    position: relative;
+}
+
+header>div {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+header>div>img {
+    position: relative;
+    margin-left: 7%;
+    margin-bottom: 7%;
+}
+
+header>img {
+    position: relative;
+}
+
+#pistol {
+    left: 44%;
+    top: 53%;
+}
+#freezer {
+    top: 5%;
+    left: 65%;
+}
+#dog {
+    top: 15%;
+    left: 25%;
+    transform: rotate(20deg);
+}
+#losingblood {
+    right: 15%;
+}
+#poison {
+    right: 70%;
+    transform: rotate(-5deg);
+}
+#headless {
+    top: 35%;
+    left: 65%;
+}
+/*#broken_clock {
+    left: 65%;
+}*/
