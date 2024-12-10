@@ -25,7 +25,7 @@ function position() {
 
         //calcula a largura e altura da secção (tela)
         const displayWidth = displayRect.width / 2;
-        const displayHeight = displayRect.height - 80;
+        const displayHeight = displayRect.height - 130;
 
         //guardam as posições x e y dos quadrados
         let savedX = squares[i].getAttribute('data-x');
@@ -50,7 +50,7 @@ function position() {
                     let otherY = parseFloat(otherSquare.getAttribute('data-y'));
 
                     //se a distancia entre dois quadrados for menor que 100
-                    if (dist(randomX, randomY, otherX, otherY) < 100) { 
+                    if (dist(randomX, randomY, otherX, otherY) < 150) { 
                         sobreposto = true;
                         break;
                     }
