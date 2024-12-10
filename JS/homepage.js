@@ -25,7 +25,7 @@ function position() {
 
         //calcula a largura e altura da secção (tela)
         const displayWidth = displayRect.width / 2;
-        const displayHeight = displayRect.height - 130;
+        const displayHeight = displayRect.height - 150;
 
         //guardam as posições x e y dos quadrados
         let savedX = squares[i].getAttribute('data-x');
