@@ -24,7 +24,7 @@ function position() {
         const squareHeight = rect.height; // Altura do quadrado
 
         //calcula a largura e altura da secção (tela)
-        const displayWidth = displayRect.width / 2;
+        const displayWidth = displayRect.width ;
         const displayHeight = displayRect.height - 150;
 
         //guardam as posições x e y dos quadrados
