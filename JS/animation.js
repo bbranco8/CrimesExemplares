@@ -28,6 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_cup = [];
     const anim_paper = [];
 
+    // Array de sons correspondentes a cada animação
+    const soundFiles = {
+        'dog': 'sounds/dog.mov',
+        'coffee': 'sounds/coffee.mov',
+        'sewing': 'sounds/sewing.mov',
+        'car': 'sounds/car.mov',
+        'clock': 'sounds/clock.mov',
+        'stapler': 'sounds/stapler.mov',
+        'cup': 'sounds/cup.mov'
+    };
+
     for (let i = 0; i < 2; i++) {
         anim_dog.push(`frontpage/dog/dog${i}.png`);
         anim_sewing.push(`quizz/sewing/sewing${i}.png`);
@@ -63,9 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Função para animacao 
-    function createImageAnimation(elementId, imageArray) {
+    function createImageAnimation(elementId, imageArray, soundFile) {
         let currentIndex = 0; // Começa com a primeira imagem
         const element = document.getElementById(elementId);
+        const sound = new Audio(soundFile);
 
         // Função para mudar a imagem
         function changeImage() {
@@ -76,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inicia a troca de imagens quando o mouse entra
         element.addEventListener('mouseenter', function () {
             currentIndex = 0; // Reset para a primeira imagem
+            sound.play(); // Toca o som
             intervalId = setInterval(changeImage, 270); // Troca de imagem a cada 270ms
         });
 
@@ -83,31 +96,33 @@ document.addEventListener('DOMContentLoaded', function() {
         element.addEventListener('mouseleave', function () {
             clearInterval(intervalId); // Para o intervalo quando o mouse sai
             element.src = imageArray[0]; // Define a imagem inicial ao sair
+            sound.pause(); // Para o som quando o mouse sai
+            sound.currentTime = 0; // Reset o tempo do som para começar novamente
         });
     }
 
     // Aplica a animação a todos os elementos
-    createImageAnimation('headless', anim_headless);
-    createImageAnimation('dog', anim_dog);
-    createImageAnimation('losingblood', anim_losing_blood_c);
-    createImageAnimation('money', anim_money);
-    createImageAnimation('coffee', anim_coffee);
-    createImageAnimation('sewing', anim_sewing);
-    createImageAnimation('cinema', anim_cinema);
-    createImageAnimation('car', anim_car);
-    createImageAnimation('clock', anim_clock);
-    createImageAnimation('razor', anim_razor);
-    createImageAnimation('stapler', anim_stapler);
-    createImageAnimation('wine', anim_wine);
-    createImageAnimation('smirk', anim_smirk);
-    createImageAnimation('freezing', anim_freezing);
-    createImageAnimation('headless_quizz', anim_headless);
-    createImageAnimation('losing_blood', anim_losing_blood);
-    createImageAnimation('eyes', anim_eyes);
-    createImageAnimation('jukebox', anim_jukebox);
-    createImageAnimation('ink', anim_ink);
-    createImageAnimation('sweat', anim_sweat);
-    createImageAnimation('cup', anim_cup);
-    createImageAnimation('paper', anim_paper);
-    createImageAnimation('dog_quizz', anim_dog);
+    createImageAnimation('headless', anim_headless, soundFiles.dog);
+    createImageAnimation('dog', anim_dog, soundFiles.dog);
+    createImageAnimation('losingblood', anim_losing_blood_c, soundFiles.dog);
+    createImageAnimation('money', anim_money, soundFiles.dog);
+    createImageAnimation('coffee', anim_coffee, soundFiles.coffee);
+    createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
+    createImageAnimation('cinema', anim_cinema, soundFiles.dog);
+    createImageAnimation('car', anim_car, soundFiles.car);
+    createImageAnimation('clock', anim_clock, soundFiles.clock);
+    createImageAnimation('razor', anim_razor, soundFiles.car);
+    createImageAnimation('stapler', anim_stapler, soundFiles.stapler);
+    createImageAnimation('wine', anim_wine, soundFiles.dog);
+    createImageAnimation('smirk', anim_smirk, soundFiles.dog);
+    createImageAnimation('freezing', anim_freezing, soundFiles.dog);
+    createImageAnimation('headless_quizz', anim_headless, soundFiles.dog);
+    createImageAnimation('losing_blood', anim_losing_blood, soundFiles.dog);
+    createImageAnimation('eyes', anim_eyes, soundFiles.dog);
+    createImageAnimation('jukebox', anim_jukebox, soundFiles.dog);
+    createImageAnimation('ink', anim_ink, soundFiles.dog);
+    createImageAnimation('sweat', anim_sweat, soundFiles.dog);
+    createImageAnimation('cup', anim_cup, soundFiles.cup);
+    createImageAnimation('paper', anim_paper, soundFiles.dog);
+    createImageAnimation('dog_quizz', anim_dog, soundFiles.dog);
 });
