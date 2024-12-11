@@ -35,7 +35,7 @@ section {
 
 .text {
     font-size: 1.25vw;/*formato de fonte responsivo*/
-    width: 50%;
+    width: 49%;
     margin-top: 3%;
     font-family: 'Circular';
     line-height: 1.4;

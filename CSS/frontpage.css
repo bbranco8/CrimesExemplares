@@ -20,29 +20,32 @@ header>img {
 }
 
 #pistol {
-    left: 44%;
-    top: 53%;
+    left: 32%;
+    top: 62%;
 }
 #freezer {
-    top: 5%;
-    left: 65%;
+    top: 35%;
+    left: 58%;
 }
 #dog {
-    top: 15%;
-    left: 25%;
+    top: 30%;
+    left: 40%;
     transform: rotate(20deg);
 }
 #losingblood {
-    right: 15%;
+    right: 30%;
+    top: 10%;
 }
 #poison {
-    right: 70%;
+    top: 5%;
+    right: 75%;
     transform: rotate(-5deg);
 }
 #headless {
-    top: 35%;
-    left: 65%;
+    top: 75%;
+    left: 80%;
 }
-/*#broken_clock {
-    left: 65%;
-}*/
+#broken_clock {
+    top: 10%;
+    left: 80%;
+}

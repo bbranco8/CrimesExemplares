@@ -8,6 +8,11 @@
     z-index: 60;
 }
 
+.imgTitulo{
+    position: relative;
+    z-index: 40;
+}
+
 
 #money {
     cursor: pointer;
