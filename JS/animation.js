@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_dog = [];
     const anim_headless = [];
     const anim_money = [];
+    const anim_broken_clock = [];
     // local
     const anim_sewing = [];
     const anim_cinema = [];
@@ -16,10 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_cut_paper = [];
     // assassino
     const anim_smirk = [];
+    const anim_barber = [];
+    const anim_woman = [];
     // vitima
     const anim_freezing = [];
     const anim_losing_blood = [];
-    const anim_eyes = [];
     //motivo
     const anim_jukebox = [];
     const anim_ink = [];
@@ -29,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Array de sons correspondentes a cada animação
     const soundFiles = {
+        'broken_clock': 'sounds/broken_clock.mov',
         'dog': 'sounds/dog.mov',
+        'money': 'sounds/money.mov',
         'coffee': 'sounds/coffee.mov',
         'sewing': 'sounds/sewing.mov',
         'car': 'sounds/car.mov',
@@ -39,7 +43,17 @@ document.addEventListener('DOMContentLoaded', function() {
         'cinema': 'sounds/cinema.mov',
         'wine': 'sounds/wine.mov',
         'cut_paper': 'sounds/cut_paper.mov',
-        'headless': 'sounds/headless.mov'
+        'headless': 'sounds/headless.mov',
+        'paper': 'sounds/paper.mov',
+        'sweat': 'sounds/sweat.mov',
+        'ink': 'sounds/ink.mov',
+        'losing_blood': 'sounds/losing_blood.mov',
+        'razor': 'sounds/razor.mov',
+        'freezing': 'sounds/freezing.mov',
+        'smirk': 'sounds/smirk.mov',
+        'barber': 'sounds/barber.mov',
+        'jukebox': 'sounds/jukebox.mov',
+        'woman': 'sounds/woman.mov'
     };
 
     for (let i = 0; i < 2; i++) {
@@ -49,16 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 3; i++){
         anim_smirk.push(`quizz/smirk/smirk${i}.png`);
+        anim_car.push(`quizz/car/car${i}.png`);
     }
     for (let i = 0; i < 4; i++) {
         anim_headless.push(`frontpage/headless/headless${i}.png`);
-        anim_car.push(`quizz/car/car${i}.png`);
         anim_cut_paper.push(`quizz/cut_paper/cut_paper${i}.png`);
         anim_losing_blood.push(`quizz/losing_blood/losing_blood${i}.png`);
+        anim_barber.push(`quizz/barber/barber${i}.png`);
         anim_jukebox.push(`quizz/jukebox/jukebox${i}.png`);
-        anim_eyes.push(`quizz/eyes/eyes${i}.png`);
+        anim_woman.push(`quizz/woman/woman${i}.png`);
+    }
+    for (let i = 0; i < 5; i++) {
+        anim_sweat.push(`quizz/sweat/sweat${i}.png`); 
     }
     for (let i = 0; i < 6; i++) {
+        anim_broken_clock.push(`frontpage/broken_clock/broken_clock${i}.png`);
         anim_cinema.push(`quizz/cinema/cinema${i}.png`); 
         anim_clock.push(`quizz/clock/clock${i}.png`); 
         anim_razor.push(`quizz/razor/razor${i}.png`); 
@@ -108,25 +127,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Aplica a animação a todos os elementos
     createImageAnimation('headless', anim_headless, soundFiles.headless);
     createImageAnimation('dog', anim_dog, soundFiles.dog);
-    createImageAnimation('losingblood', anim_losing_blood, soundFiles.dog);
-    createImageAnimation('money', anim_money, soundFiles.dog);
+    createImageAnimation('losingblood', anim_losing_blood, soundFiles.losing_blood);
+    createImageAnimation('broken_clock', anim_broken_clock, soundFiles.broken_clock);
+    createImageAnimation('money', anim_money, soundFiles.money);
     createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
     createImageAnimation('cinema', anim_cinema, soundFiles.cinema);
     createImageAnimation('car', anim_car, soundFiles.car);
     createImageAnimation('clock', anim_clock, soundFiles.clock);
-    createImageAnimation('razor', anim_razor, soundFiles.car);
+    createImageAnimation('razor', anim_razor, soundFiles.razor);
     createImageAnimation('stapler', anim_stapler, soundFiles.stapler);
     createImageAnimation('wine', anim_wine, soundFiles.wine);
     createImageAnimation('cut_paper', anim_cut_paper, soundFiles.cut_paper);
-    createImageAnimation('smirk', anim_smirk, soundFiles.dog);
-    createImageAnimation('freezing', anim_freezing, soundFiles.dog);
+    createImageAnimation('smirk', anim_smirk, soundFiles.smirk);
+    createImageAnimation('barber', anim_barber, soundFiles.barber);
+    createImageAnimation('woman', anim_woman, soundFiles.woman);
+    createImageAnimation('freezing', anim_freezing, soundFiles.freezing);
     createImageAnimation('headless_quizz', anim_headless, soundFiles.headless);
-    createImageAnimation('losing_blood', anim_losing_blood, soundFiles.dog);
-    createImageAnimation('eyes', anim_eyes, soundFiles.dog);
-    createImageAnimation('jukebox', anim_jukebox, soundFiles.dog);
-    createImageAnimation('ink', anim_ink, soundFiles.dog);
-    createImageAnimation('sweat', anim_sweat, soundFiles.dog);
+    createImageAnimation('losing_blood', anim_losing_blood, soundFiles.losing_blood);
+    createImageAnimation('jukebox', anim_jukebox, soundFiles.jukebox);
+    createImageAnimation('ink', anim_ink, soundFiles.ink);
+    createImageAnimation('sweat', anim_sweat, soundFiles.sweat);
     createImageAnimation('cup', anim_cup, soundFiles.cup);
-    createImageAnimation('paper', anim_paper, soundFiles.dog);
+    createImageAnimation('paper', anim_paper, soundFiles.paper);
     createImageAnimation('dog_quizz', anim_dog, soundFiles.dog);
 });
