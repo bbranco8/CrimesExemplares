@@ -1,0 +1,11 @@
+.thirdScreen{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#crowd{
+    position: absolute;
+    display: flex;
+    justify-content: end;
+}
