@@ -41,20 +41,14 @@ document.getElementById('downloadImage').addEventListener('click', () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Definir dimensões do canvas baseado nas imagens
-    const width = displayContainer.offsetWidth; // Defina o tamanho desejado para cada imagem
+    // Define as dimensões da tela (canvas) com base nas imagens
+    const width = displayContainer.offsetWidth; // Define o tamanho desejado para cada imagem
     const height = displayContainer.offsetHeight; // Altura combinada
     canvas.width = width;
     canvas.height = height;
-
-    console.log(canvas.width, canvas.height)
-
-    // Adicionar fundo branco
-    // ctx.fillStyle = 'white'; // Define a cor de fundo
-    // ctx.fillRect(0, 0, canvas.width, canvas.height); // Desenha o fundo branco
     ctx.drawImage(board, 0, 0, canvas.width, canvas.height);
 
-    // Desenhar cada imagem no canvas
+    //desenha cada uma das imagens no canvas
     imagesToDownload.forEach((img, index) => {
 
         let imgWidth = parseInt(img.getAttribute("width")) * 12;
@@ -62,10 +56,10 @@ document.getElementById('downloadImage').addEventListener('click', () => {
         let imgX = img.getAttribute("data-x") - quizzContainerW / 1.65 // Esquerda - Direita + 
         let imgY = img.getAttribute("data-y") - canvas.height / 4.2 // Cima - Baixo + 
 
-        ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight); // Desenhar imagem no canvas
+        ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight); 
     });
 
-    // Converter canvas para URL de imagem
+    // Converte o canvas para um link (url) de imagem
     canvas.toBlob((blob) => {
         if (!blob) {
             console.error("Falha ao gerar o blob.");
@@ -77,7 +71,7 @@ document.getElementById('downloadImage').addEventListener('click', () => {
         a.href = url;
         a.download = 'Crimes_Exemplares.png';
         a.click();
-        URL.revokeObjectURL(url); // Limpar memória
+        URL.revokeObjectURL(url); // Limpar memória do array
     }, 'image/png');
 });
 

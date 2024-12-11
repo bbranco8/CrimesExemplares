@@ -17,35 +17,57 @@ header>div>img {
 
 header>img {
     position: relative;
+    opacity: 0;
+    /* Inicialmente invisível */
+    transform: scale(0.2);
+    /* Começa menor */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Animação suave */
 }
 
+/* Definindo as posições específicas */
 #pistol {
     left: 32%;
     top: 62%;
 }
+
 #freezer {
     top: 35%;
     left: 58%;
 }
+
 #dog {
     top: 30%;
     left: 40%;
     transform: rotate(20deg);
 }
+
 #losingblood {
     right: 30%;
     top: 10%;
 }
+
+#broken_clock {
+    top: 10%;
+    left: 80%;
+}
+
 #poison {
     top: 5%;
     right: 75%;
     transform: rotate(-5deg);
 }
+
 #headless {
     top: 75%;
     left: 80%;
 }
-#broken_clock {
-    top: 10%;
-    left: 80%;
+
+
+
+/* Estilo para mostrar as imagens com o efeito pop-up */
+.show {
+    opacity: 1;
+    transform: scale(1);
+    /* Normaliza o tamanho */
 }
