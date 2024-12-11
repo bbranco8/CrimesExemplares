@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 4; i++) {
         anim_car.push(`quizz/car/car${i}.png`);
+        anim_losing_blood_c.push(`frontpage/losing_blood_c/losing_blood_c${i}.png`);
         anim_losing_blood.push(`quizz/losing_blood/losing_blood${i}.png`);
         anim_jukebox.push(`quizz/jukebox/jukebox${i}.png`);
         anim_eyes.push(`quizz/eyes/eyes${i}.png`);
     }
     for (let i = 0; i < 6; i++) {
         anim_headless.push(`frontpage/headless/headless${i}.png`);
-        anim_losing_blood_c.push(`frontpage/losing_blood_c/losing_blood_c${i}.png`);
         anim_coffee.push(`quizz/coffee/coffee${i}.png`); 
         anim_cinema.push(`quizz/cinema/cinema${i}.png`); 
         anim_clock.push(`quizz/clock/clock${i}.png`); 
