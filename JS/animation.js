@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
         'clock': 'sounds/clock.mov',
         'stapler': 'sounds/stapler.mov',
         'cup': 'sounds/cup.mov',
-        'cinema': 'sounds/cinema.mov'
+        'cinema': 'sounds/cinema.mov',
+        'wine': 'sounds/wine.mov',
+        'cut_paper': 'sounds/cut_paper.mov'
     };
 
     for (let i = 0; i < 2; i++) {
@@ -115,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('clock', anim_clock, soundFiles.clock);
     createImageAnimation('razor', anim_razor, soundFiles.car);
     createImageAnimation('stapler', anim_stapler, soundFiles.stapler);
-    createImageAnimation('wine', anim_wine, soundFiles.dog);
-    createImageAnimation('cut_paper', anim_cut_paper, soundFiles.dog);
+    createImageAnimation('wine', anim_wine, soundFiles.wine);
+    createImageAnimation('cut_paper', anim_cut_paper, soundFiles.cut_paper);
     createImageAnimation('smirk', anim_smirk, soundFiles.dog);
     createImageAnimation('freezing', anim_freezing, soundFiles.dog);
     createImageAnimation('headless_quizz', anim_headless, soundFiles.dog);
