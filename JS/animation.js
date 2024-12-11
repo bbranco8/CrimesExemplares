@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'cup': 'sounds/cup.mov',
         'cinema': 'sounds/cinema.mov',
         'wine': 'sounds/wine.mov',
-        'cut_paper': 'sounds/cut_paper.mov'
+        'cut_paper': 'sounds/cut_paper.mov',
+        'headless': 'sounds/headless.mov'
     };
 
     for (let i = 0; i < 2; i++) {
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         anim_smirk.push(`quizz/smirk/smirk${i}.png`);
     }
     for (let i = 0; i < 4; i++) {
+        anim_headless.push(`frontpage/headless/headless${i}.png`);
         anim_car.push(`quizz/car/car${i}.png`);
         anim_cut_paper.push(`quizz/cut_paper/cut_paper${i}.png`);
         anim_losing_blood.push(`quizz/losing_blood/losing_blood${i}.png`);
@@ -57,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         anim_eyes.push(`quizz/eyes/eyes${i}.png`);
     }
     for (let i = 0; i < 6; i++) {
-        anim_headless.push(`frontpage/headless/headless${i}.png`);
         anim_cinema.push(`quizz/cinema/cinema${i}.png`); 
         anim_clock.push(`quizz/clock/clock${i}.png`); 
         anim_razor.push(`quizz/razor/razor${i}.png`); 
@@ -105,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Aplica a animação a todos os elementos
-    createImageAnimation('headless', anim_headless, soundFiles.dog);
+    createImageAnimation('headless', anim_headless, soundFiles.headless);
     createImageAnimation('dog', anim_dog, soundFiles.dog);
     createImageAnimation('losingblood', anim_losing_blood, soundFiles.dog);
     createImageAnimation('money', anim_money, soundFiles.dog);
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('cut_paper', anim_cut_paper, soundFiles.cut_paper);
     createImageAnimation('smirk', anim_smirk, soundFiles.dog);
     createImageAnimation('freezing', anim_freezing, soundFiles.dog);
-    createImageAnimation('headless_quizz', anim_headless, soundFiles.dog);
+    createImageAnimation('headless_quizz', anim_headless, soundFiles.headless);
     createImageAnimation('losing_blood', anim_losing_blood, soundFiles.dog);
     createImageAnimation('eyes', anim_eyes, soundFiles.dog);
     createImageAnimation('jukebox', anim_jukebox, soundFiles.dog);
