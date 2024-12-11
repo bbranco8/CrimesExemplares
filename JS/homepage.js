@@ -4,13 +4,82 @@ let topicos = document.querySelectorAll('.topicos ul li');
 //seleciona todos os quadrados
 let squares = document.querySelectorAll(".square");
 
+let imagesToDownload = [];
 
-//função para calcular a distância entre dois pontos (usada nos quadrados)
-function dist(x1, y1, x2, y2) {
-    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+function getImageDimensions(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image(); // Cria um novo objeto de imagem
+        img.src = src; // Define o caminho da imagem
+
+        // Quando a imagem for carregada com sucesso
+        img.onload = () => {
+            resolve({ width: img.width, height: img.height });
+            return img.width, img.height;
+        };
+
+        // Caso ocorra algum erro ao carregar a imagem
+        img.onerror = () => {
+            reject(new Error(`Erro ao carregar a imagem: ${src}`));
+        };
+    });
 }
 
+document.getElementById('downloadImage').addEventListener('click', () => {
 
+    const displayContainer = document.querySelector('#displayDiv');
+    const quizzContainer = document.querySelector('#local');
+    let quizzContainerW = quizzContainer.offsetWidth;
+    
+    const board = document.querySelector('#board');
+
+    if (!imagesToDownload) {
+        console.error("Não existem imagens")
+        return;
+    }
+
+    // Criar canvas
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Definir dimensões do canvas baseado nas imagens
+    const width = displayContainer.offsetWidth; // Defina o tamanho desejado para cada imagem
+    const height = displayContainer.offsetHeight; // Altura combinada
+    canvas.width = width;
+    canvas.height = height;
+
+    console.log(canvas.width, canvas.height)
+
+    // Adicionar fundo branco
+    // ctx.fillStyle = 'white'; // Define a cor de fundo
+    // ctx.fillRect(0, 0, canvas.width, canvas.height); // Desenha o fundo branco
+    ctx.drawImage(board, 0, 0, canvas.width, canvas.height);
+
+    // Desenhar cada imagem no canvas
+    imagesToDownload.forEach((img, index) => {
+
+        let imgWidth = parseInt(img.getAttribute("width")) * 12;
+        let imgHeight = parseInt(img.getAttribute("height")) * 6;
+        let imgX = img.getAttribute("data-x") - quizzContainerW / 1.65 // Esquerda - Direita + 
+        let imgY = img.getAttribute("data-y") - canvas.height / 4.2 // Cima - Baixo + 
+
+        ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight); // Desenhar imagem no canvas
+    });
+
+    // Converter canvas para URL de imagem
+    canvas.toBlob((blob) => {
+        if (!blob) {
+            console.error("Falha ao gerar o blob.");
+            return;
+        }
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Crimes_Exemplares.png';
+        a.click();
+        URL.revokeObjectURL(url); // Limpar memória
+    }, 'image/png');
+});
 
 function position() {
     const displayContainer = document.querySelector('#fourthScreen');
@@ -41,9 +110,6 @@ function position() {
     }
 }
 
-
-
-
 //função dedicada à parte de arrastar os elementos
 function mover(square) {
     let posX = 0, posY = 0;
@@ -54,7 +120,7 @@ function mover(square) {
         arrasta = true;
         posX = e.clientX - square.offsetLeft;  //distância até a borda esquerda do quadrado
         posY = e.clientY - square.offsetTop;   //distância até a borda superior do quadrado
-        square.style.cursor = 'grabbing'; 
+        square.style.cursor = 'grabbing';
 
         e.preventDefault();  //previne que quando se arrasta o texto não fique selecionado
 
@@ -83,14 +149,41 @@ function mover(square) {
         //momento em que o rato larga o quadrado
         const onMouseUp = () => {
             arrasta = false;
-            square.style.cursor = 'grab';  
+            square.style.cursor = 'grab';
             //remove o evento de movimento
-            document.removeEventListener('mousemove', onMouseMove); 
-            document.removeEventListener('mouseup', onMouseUp); 
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+
+            //calcula a posição de cada quadrado em relação ao contentor
+            const rect = square.getBoundingClientRect();
+
+            //seleciona o contentor display e calcula a sua dimensão
+            const displayContainer = document.querySelector('#displayDiv');
+            const displayRect = displayContainer.getBoundingClientRect();
+
+            const squareRight = rect.left + rect.width;  //posição direita do quadrado
+            const squareBottom = rect.top + rect.height;  //posição inferior do quadrado
+
+            //verifica se os quadrados estão dentro do contentor .display
+            //Se estiver dentro do .display
+            if (rect.left >= displayRect.left && rect.top >= displayRect.top &&
+                squareRight <= displayRect.right && squareBottom <= displayRect.bottom) {
+                //Se NÃO fizer parte do array imagesToDownload
+                if (!imagesToDownload.includes(square)) {
+                    imagesToDownload.push(square);
+                }
+            } else {
+                //Se fizer parte do array imagesToDownload
+                if (imagesToDownload.includes(square)) {
+                    // Remover do array o square
+                    imagesToDownload.pop(square);
+                }
+            }
         };
 
+
         //adiciona o evento de movimento
-        document.addEventListener('mousemove', onMouseMove);  
+        document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
     });
 }
@@ -103,6 +196,7 @@ position();
 
 //função que permite mudar de tópicos, visualizando apenas os quadrados respetivos
 function adicionarEventosClique() {
+
     for (let i = 0; i < topicos.length; i++) {
         topicos[i].addEventListener("click", function () {
             let topicId = topicos[i].id.replace('Btn', ''); // Determina qual é o tópico que vai ser exibido
@@ -121,7 +215,7 @@ function adicionarEventosClique() {
                     const rect = squares[j].getBoundingClientRect();
 
                     //seleciona o contentor display e calcula a sua dimensão
-                    const displayContainer = document.querySelector('.display');
+                    const displayContainer = document.querySelector('#displayDiv');
                     const displayRect = displayContainer.getBoundingClientRect();
 
                     const squareRight = rect.left + rect.width;  //posição direita do quadrado
@@ -131,6 +225,8 @@ function adicionarEventosClique() {
                     if (rect.left >= displayRect.left && rect.top >= displayRect.top &&
                         squareRight <= displayRect.right && squareBottom <= displayRect.bottom) {
                         squares[j].style.display = "block"; //se estiverem não são apagados
+                        // imagesToDownload.push(squares[j]);
+                        // console.log(imagesToDownload)
                     } else {
                         squares[j].style.display = "none";//se não estiverem são apagados
                     }
@@ -142,7 +238,9 @@ function adicionarEventosClique() {
         if (topicos.length > 0) {
             topicos[0].click();
         }
+
     }
+
 }
 
 
@@ -156,19 +254,3 @@ function atualizarCorTopicos(selectedIndex) {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
