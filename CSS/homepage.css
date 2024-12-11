@@ -40,3 +40,8 @@ section {
     font-family: 'Circular';
     line-height: 1.4;
 }
+
+.imgFront{
+    position: absolute;
+    cursor: pointer;
+}

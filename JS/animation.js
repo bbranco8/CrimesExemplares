@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //front page
     const anim_dog = [];
     const anim_headless = [];
-    const anim_losing_blood_c = [];
     const anim_money = [];
     // local
     const anim_sewing = [];
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < 4; i++) {
         anim_car.push(`quizz/car/car${i}.png`);
         anim_cut_paper.push(`quizz/cut_paper/cut_paper${i}.png`);
-        anim_losing_blood_c.push(`frontpage/losing_blood_c/losing_blood_c${i}.png`);
         anim_losing_blood.push(`quizz/losing_blood/losing_blood${i}.png`);
         anim_jukebox.push(`quizz/jukebox/jukebox${i}.png`);
         anim_eyes.push(`quizz/eyes/eyes${i}.png`);
@@ -109,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Aplica a animação a todos os elementos
     createImageAnimation('headless', anim_headless, soundFiles.dog);
     createImageAnimation('dog', anim_dog, soundFiles.dog);
-    createImageAnimation('losingblood', anim_losing_blood_c, soundFiles.dog);
+    createImageAnimation('losingblood', anim_losing_blood, soundFiles.dog);
     createImageAnimation('money', anim_money, soundFiles.dog);
     createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
     createImageAnimation('cinema', anim_cinema, soundFiles.cinema);
