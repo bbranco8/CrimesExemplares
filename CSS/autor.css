@@ -1,7 +1,13 @@
 .secondContainer{
     position: relative;
-    z-index: 20;
+    z-index: 10;
 }
+
+.autorText{
+    position: relative;
+    z-index: 60;
+}
+
 
 #money {
     cursor: pointer;
@@ -10,4 +16,15 @@
     height: auto;
     top: 100vh;
     right: 7%;
+    z-index: 15;
+}
+
+.moneyBackground{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    z-index: 5;
+    
 }
