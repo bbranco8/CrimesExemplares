@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_losing_blood_c = [];
     const anim_money = [];
     // local
-    const anim_coffee = [];
     const anim_sewing = [];
     const anim_cinema = [];
     // arma
@@ -15,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_razor = [];
     const anim_stapler = [];
     const anim_wine = [];
+    const anim_cut_paper = [];
     // assassino
     const anim_smirk = [];
     // vitima
@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 4; i++) {
         anim_car.push(`quizz/car/car${i}.png`);
+        anim_cut_paper.push(`quizz/cut_paper/cut_paper${i}.png`);
         anim_losing_blood_c.push(`frontpage/losing_blood_c/losing_blood_c${i}.png`);
         anim_losing_blood.push(`quizz/losing_blood/losing_blood${i}.png`);
         anim_jukebox.push(`quizz/jukebox/jukebox${i}.png`);
@@ -56,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     for (let i = 0; i < 6; i++) {
         anim_headless.push(`frontpage/headless/headless${i}.png`);
-        anim_coffee.push(`quizz/coffee/coffee${i}.png`); 
         anim_cinema.push(`quizz/cinema/cinema${i}.png`); 
         anim_clock.push(`quizz/clock/clock${i}.png`); 
         anim_razor.push(`quizz/razor/razor${i}.png`); 
@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
         anim_ink.push(`quizz/ink/ink${i}.png`); 
         anim_sweat.push(`quizz/sweat/sweat${i}.png`); 
         anim_paper.push(`quizz/paper/paper${i}.png`); 
+        anim_wine.push(`quizz/wine/wine${i}.png`);
     }
     for (let i = 0; i < 8; i++) {
-        anim_wine.push(`quizz/wine/wine${i}.png`);
         anim_cup.push(`quizz/cup/cup${i}.png`);
     }
     for (let i = 0; i < 9; i++) {
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentIndex = 0; // Começa com a primeira imagem
         const element = document.getElementById(elementId);
         const sound = new Audio(soundFile);
+        sound.loop = true; // Configura o som para tocar em loop
 
         // Função para mudar a imagem
         function changeImage() {
@@ -88,7 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inicia a troca de imagens quando o mouse entra
         element.addEventListener('mouseenter', function () {
             currentIndex = 0; // Reset para a primeira imagem
-            sound.play(); // Toca o som
+            sound.currentTime = 0; // Garante que o som recomece do início
+            sound.play(); // Toca o som em loop
             intervalId = setInterval(changeImage, 270); // Troca de imagem a cada 270ms
         });
 
@@ -106,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('dog', anim_dog, soundFiles.dog);
     createImageAnimation('losingblood', anim_losing_blood_c, soundFiles.dog);
     createImageAnimation('money', anim_money, soundFiles.dog);
-    createImageAnimation('coffee', anim_coffee, soundFiles.coffee);
     createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
     createImageAnimation('cinema', anim_cinema, soundFiles.dog);
     createImageAnimation('car', anim_car, soundFiles.car);
@@ -114,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('razor', anim_razor, soundFiles.car);
     createImageAnimation('stapler', anim_stapler, soundFiles.stapler);
     createImageAnimation('wine', anim_wine, soundFiles.dog);
+    createImageAnimation('cut_paper', anim_cut_paper, soundFiles.dog);
     createImageAnimation('smirk', anim_smirk, soundFiles.dog);
     createImageAnimation('freezing', anim_freezing, soundFiles.dog);
     createImageAnimation('headless_quizz', anim_headless, soundFiles.dog);
