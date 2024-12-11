@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'car': 'sounds/car.mov',
         'clock': 'sounds/clock.mov',
         'stapler': 'sounds/stapler.mov',
-        'cup': 'sounds/cup.mov'
+        'cup': 'sounds/cup.mov',
+        'cinema': 'sounds/cinema.mov'
     };
 
     for (let i = 0; i < 2; i++) {
@@ -109,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('losingblood', anim_losing_blood_c, soundFiles.dog);
     createImageAnimation('money', anim_money, soundFiles.dog);
     createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
-    createImageAnimation('cinema', anim_cinema, soundFiles.dog);
+    createImageAnimation('cinema', anim_cinema, soundFiles.cinema);
     createImageAnimation('car', anim_car, soundFiles.car);
     createImageAnimation('clock', anim_clock, soundFiles.clock);
     createImageAnimation('razor', anim_razor, soundFiles.car);
