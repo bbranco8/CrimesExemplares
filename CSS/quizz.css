@@ -70,14 +70,17 @@
 .btnCont{
     position: absolute;
     right: 0%;
-    bottom: 3%;
+    top: 92%;
     width: 45%;
     display: flex;
     justify-content: center;
 }
 
 .downloadBtn{
+    cursor: pointer;
     border: none;
+    width: 20%;
+    height: 13%;
     padding: 5px 15px;
     border-radius: 15px;
     position: relative;
