@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const anim_headless = [];
     const anim_money = [];
     const anim_broken_clock = [];
-    const anim_crowd = [];
     // local
     const anim_sewing = [];
     const anim_cinema = [];
@@ -95,9 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < 9; i++) {
         anim_money.push(`midlepages/money/money${i}.png`);
     }
-    for (let i = 0; i < 19; i++) {
-        anim_crowd.push(`midlepages/crowd/crowd${i}.png`);
-    }
 
     // Função para animacao 
     function createImageAnimation(elementId, imageArray, soundFile) {
@@ -134,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
     createImageAnimation('dog', anim_dog, soundFiles.dog);
     createImageAnimation('losingblood', anim_losing_blood, soundFiles.losing_blood);
     createImageAnimation('broken_clock', anim_broken_clock, soundFiles.broken_clock);
-    createImageAnimation('crowd', anim_crowd, soundFiles.crowd);
     createImageAnimation('money', anim_money, soundFiles.money);
     createImageAnimation('sewing', anim_sewing, soundFiles.sewing);
     createImageAnimation('cinema', anim_cinema, soundFiles.cinema);
