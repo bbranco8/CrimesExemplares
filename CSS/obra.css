@@ -1,0 +1,15 @@
+.multidao{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    bottom: 10%;    
+}
+
+#crowd{
+    width: 60%;
+    height: auto;
+    position: absolute;
+   z-index: 30;
+}
